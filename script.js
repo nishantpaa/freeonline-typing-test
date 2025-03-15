@@ -108,3 +108,25 @@ function calculateSpeed() {
     let speed = totalWords / ((timeLeft + 1) / 60); // शब्द प्रति मिनट (WPM)
     document.getElementById("speed").innerText = speed.toFixed(2);
 }
+// हिंदी और इंग्लिश पैराग्राफ स्टोर करना
+let typingText = {
+    "hindi": [
+        "यह एक हिंदी टाइपिंग टेस्ट का नमूना है। इसे ध्यानपूर्वक पढ़ें और टाइप करें।",
+        "भारत एक महान देश है। इसकी संस्कृति बहुत प्राचीन और समृद्ध है।",
+        "स्वस्थ जीवन के लिए योग और व्यायाम बहुत जरूरी होते हैं।"
+    ],
+    "english": [
+        "This is a sample English typing test. Read carefully and type.",
+        "India is a great country. Its culture is ancient and rich.",
+        "Yoga and exercise are very important for a healthy life."
+    ]
+};
+
+// जब यूजर "स्टार्ट" बटन दबाए तो पैराग्राफ दिखे
+function startTypingTest() {
+    let selectedLang = document.getElementById("language").value;
+
+    // रैंडम पैराग्राफ चुनना
+    let randomIndex = Math.floor(Math.random() * typingText[selectedLang].length);
+    document.getElementById("typing-text").innerText = typingText[selectedLang][randomIndex];
+}
