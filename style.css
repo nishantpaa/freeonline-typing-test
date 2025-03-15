@@ -2,37 +2,32 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    background: #333;
-    overflow: hidden;
-}
-
-nav ul li {
-    display: inline;
-    padding: 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
 .container {
     margin: 20px;
 }
-
 textarea {
     width: 80%;
     height: 100px;
-    margin: 10px 0;
+    font-size: 18px;
 }
-
-.logo {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 50px;
+#paragraph {
+    font-size: 20px;
+    font-weight: bold;
+}
+#result {
+    font-size: 18px;
+    font-weight: bold;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: blue;
 }
