@@ -1,52 +1,48 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPCT Typing Test</title>
+    <title>Typing Test</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation Menu -->
+
+    <!-- 🔹 Menu Bar -->
     <nav>
         <ul>
-            <li><a href="#">🏠 होम</a></li>
-            <li><a href="#">⌨️ टाइपिंग टेस्ट</a></li>
-            <li><a href="#">📄 MS Word जानकारी</a></li>
-            <li><a href="#">📜 CPCT पुराने प्रश्न</a></li>
+            <li><a href="index.html">Typing Test</a></li>
+            <li><a href="msword.html">MS Word Info</a></li>
+            <li><a href="cpct.html">CPCT Old Question</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <h1>📑 CPCT हिंदी और इंग्लिश टाइपिंग टेस्ट</h1>
+    <!-- 🔹 Logo (Right Side) -->
+    <img src="logo.png" alt="Logo" class="logo">
 
-    <!-- भाषा चयन -->
-    <label for="language">भाषा चुनें:</label>
-    <select id="language">
-        <option value="hindi">हिंदी</option>
-        <option value="english">English</option>
-    </select>
+    <!-- 🔹 Typing Test Section -->
+    <div class="container">
+        <h2>Typing Test</h2>
+        <select id="timeSelect">
+            <option value="1">1 Minute</option>
+            <option value="5">5 Minutes</option>
+            <option value="10">10 Minutes</option>
+            <option value="30">30 Minutes</option>
+        </select>
+        <button onclick="startTest()">Start</button>
+        
+        <p id="paragraph">
+            यह एक हिंदी टाइपिंग टेस्ट है, जिसमें आपको 200 शब्दों का पैराग्राफ दिया गया है। कृपया इसे सही से टाइप करें।
+        </p>
 
-    <!-- समय चयन -->
-    <label for="time">⏳ समय चुनें:</label>
-    <select id="time">
-        <option value="1">1 मिनट</option>
-        <option value="2">2 मिनट</option>
-        <option value="5">5 मिनट</option>
-        <option value="10">10 मिनट</option>
-        <option value="15">15 मिनट</option>
-        <option value="30">30 मिनट</option>
-    </select>
-
-    <button onclick="startTypingTest()">🚀 स्टार्ट करें</button>
-
-    <!-- टाइपिंग पैराग्राफ -->
-    <p id="typing-text">📜 यहां टाइपिंग का पैराग्राफ दिखेगा...</p>
-
-    <!-- टाइपिंग एरिया -->
-    <textarea id="typing-area" placeholder="यहां टाइप करें..."></textarea>
-
-    <!-- टाइमर -->
-    <h2 id="timer">⏳ समय बाकी: --:--</h2>
+        <textarea id="typingArea" placeholder="यहाँ टाइप करें..." oninput="checkTyping()"></textarea>
+        <p>⏳ Timer: <span id="timer">0:00</span></p>
+        <p>✅ Correct Words: <span id="correctWords">0</span></p>
+        <p>❌ Wrong Words: <span id="wrongWords">0</span></p>
+        <p>⌨️ WPM: <span id="wpm">0</span></p>
+    </div>
 
     <script src="script.js"></script>
 </body>
