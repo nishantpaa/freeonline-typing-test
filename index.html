@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing Test</title>
+    <title>CPCT Typing Test</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>हिंदी और इंग्लिश टाइपिंग टेस्ट</h1>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#">🏠 होम</a></li>
+            <li><a href="#">⌨️ टाइपिंग टेस्ट</a></li>
+            <li><a href="#">📄 MS Word जानकारी</a></li>
+            <li><a href="#">📜 CPCT पुराने प्रश्न</a></li>
+        </ul>
+    </nav>
 
+    <h1>📑 CPCT हिंदी और इंग्लिश टाइपिंग टेस्ट</h1>
+
+    <!-- भाषा चयन -->
     <label for="language">भाषा चुनें:</label>
     <select id="language">
         <option value="hindi">हिंदी</option>
         <option value="english">English</option>
     </select>
 
+    <!-- समय चयन -->
     <label for="time">⏳ समय चुनें:</label>
     <select id="time">
         <option value="1">1 मिनट</option>
@@ -25,12 +37,15 @@
         <option value="30">30 मिनट</option>
     </select>
 
-    <button onclick="startTypingTest()">स्टार्ट करें</button>
+    <button onclick="startTypingTest()">🚀 स्टार्ट करें</button>
 
-    <p id="typing-text">यहां टाइपिंग का पैराग्राफ दिखेगा...</p>
+    <!-- टाइपिंग पैराग्राफ -->
+    <p id="typing-text">📜 यहां टाइपिंग का पैराग्राफ दिखेगा...</p>
 
+    <!-- टाइपिंग एरिया -->
     <textarea id="typing-area" placeholder="यहां टाइप करें..."></textarea>
 
+    <!-- टाइमर -->
     <h2 id="timer">⏳ समय बाकी: --:--</h2>
 
     <script src="script.js"></script>
