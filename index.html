@@ -25,19 +25,34 @@
     <!-- 🔹 Typing Test Section -->
     <div class="container">
         <h2>Typing Test</h2>
+
+        <label>Choose Language:</label>
+        <select id="languageSelect" onchange="loadParagraph()">
+            <option value="english">English</option>
+            <option value="hindi">हिंदी</option>
+        </select>
+
+        <label>Word Count:</label>
+        <select id="wordCountSelect" onchange="loadParagraph()">
+            <option value="200">200 Words</option>
+            <option value="300">300 Words</option>
+            <option value="500">500 Words</option>
+        </select>
+
+        <label>Time (Minutes):</label>
         <select id="timeSelect">
             <option value="1">1 Minute</option>
             <option value="5">5 Minutes</option>
             <option value="10">10 Minutes</option>
             <option value="30">30 Minutes</option>
         </select>
-        <button onclick="startTest()">Start</button>
-        
-        <p id="paragraph">
-            यह एक हिंदी टाइपिंग टेस्ट है, जिसमें आपको 200 शब्दों का पैराग्राफ दिया गया है। कृपया इसे सही से टाइप करें।
-        </p>
 
-        <textarea id="typingArea" placeholder="यहाँ टाइप करें..." oninput="checkTyping()"></textarea>
+        <button onclick="startTest()">Start</button>
+
+        <p id="paragraph">Select options to load text...</p>
+
+        <textarea id="typingArea" placeholder="Start typing here..." oninput="checkTyping()"></textarea>
+
         <p>⏳ Timer: <span id="timer">0:00</span></p>
         <p>✅ Correct Words: <span id="correctWords">0</span></p>
         <p>❌ Wrong Words: <span id="wrongWords">0</span></p>
