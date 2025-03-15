@@ -1,88 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Typing Test</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; }
-        .navbar { background: #333; padding: 10px; text-align: center; }
-        .navbar a { color: white; padding: 14px 20px; text-decoration: none; display: inline-block; }
-        .navbar a:hover { background: #575757; }
-        .content { padding: 20px; text-align: center; }
-    </style>
-</head>
-<body>
-
-    <!-- Menu Bar -->
-    <div class="navbar">
-        <a href="index.html">🏠 Home</a>
-        <a href="typing-test.html">⌨️ Typing Test</a>
-        <a href="msword.html">📝 MS Word Details</a>
-        <a href="cpct.html">📜 CPCT Old Questions</a>
-        <a href="about.html">ℹ️ About</a>
-    </div>
-
-    <div class="content">
-        <h1>Welcome to Online Typing Test</h1>
-        <p>Select an option from the menu to continue.</p>
-    </div>
-
-</body>
-</html>
-<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
+    <h1>हिंदी और इंग्लिश टाइपिंग टेस्ट</h1>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">होम</a></li>
-            <li><a href="typing-test.html">टाइपिंग टेस्ट</a></li>
-            <li><a href="msword.html">MS Word जानकारी</a></li>
-            <li><a href="cpct-questions.html">CPCT पुराने प्रश्न</a></li>
-        </ul>
-    </nav>
-
-    <h1>हिंदी और अंग्रेजी टाइपिंग टेस्ट</h1>
-
-    <!-- भाषा चयन -->
     <label for="language">भाषा चुनें:</label>
     <select id="language">
         <option value="hindi">हिंदी</option>
         <option value="english">English</option>
     </select>
 
-    <!-- टाइमर चयन -->
-    <label for="time-limit">समय चुनें:</label>
-    <select id="time-limit">
+    <label for="time">⏳ समय चुनें:</label>
+    <select id="time">
         <option value="1">1 मिनट</option>
+        <option value="2">2 मिनट</option>
         <option value="5">5 मिनट</option>
         <option value="10">10 मिनट</option>
         <option value="15">15 मिनट</option>
-        <option value="20">20 मिनट</option>
         <option value="30">30 मिनट</option>
     </select>
 
-    <!-- टाइपिंग टेक्स्ट -->
-    <p id="typing-text">यहां पर हिंदी या अंग्रेजी का पैराग्राफ दिखेगा...</p>
+    <button onclick="startTypingTest()">स्टार्ट करें</button>
 
-    <!-- टाइपिंग एरिया -->
+    <p id="typing-text">यहां टाइपिंग का पैराग्राफ दिखेगा...</p>
+
     <textarea id="typing-area" placeholder="यहां टाइप करें..."></textarea>
 
-    <!-- टाइमर -->
-    <p>⏳ समय बचा: <span id="timer">60</span> सेकंड</p>
+    <h2 id="timer">⏳ समय बाकी: --:--</h2>
 
-    <!-- रिजल्ट -->
-    <p>💯 आपकी स्पीड: <span id="speed">0</span> शब्द प्रति मिनट</p>
-
-    <button onclick="startTypingTest()">टेस्ट शुरू करें</button>
-
+    <script src="script.js"></script>
 </body>
-</html>    
+</html>
