@@ -1,6 +1,6 @@
 const paragraphs = [
-    "Time management is the key to success in every aspect of life. People who manage their time efficiently tend to achieve more and feel less stressed...",
-    "Positive thinking is a mindset that leads to success, happiness, and better health. It helps individuals overcome challenges and view problems as opportunities...",
+    "Time management is the key to success in every aspect of life...",
+    "Positive thinking is a mindset that leads to success, happiness, and better health...",
     "Technology has revolutionized education, making learning more accessible and engaging...",
     "Regular exercise is essential for maintaining good health and overall well-being...",
     "Climate change is a pressing global issue that affects every aspect of life on Earth...",
