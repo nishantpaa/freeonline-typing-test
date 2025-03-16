@@ -3,69 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Typing Practice</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Typing Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        select, button { margin: 5px; padding: 5px; }
+        #paragraph { border: 1px solid #000; padding: 10px; margin-top: 10px; min-height: 100px; }
+    </style>
 </head>
 <body>
 
-    <!-- ✅ Menu Bar -->
-    <nav>
-        <ul>
-            <li><a href="#">🏠 Home</a></li>
-            <li><a href="#">📝 Hindi Typing</a></li>
-            <li><a href="#">🔤 English Typing</a></li>
-            <li><a href="#">📄 MS Office (Word, Excel, PowerPoint)</a></li>
-            <li><a href="#">📜 CPCT Old Questions</a></li>
-        </ul>
-    </nav>
+    <h2>Typing Test</h2>
 
-    <h1>Online Typing Practice</h1>
-
-    <!-- ✅ Select Language (Hindi/English) -->
     <label for="languageSelect">Select Language:</label>
-    <select id="languageSelect" onchange="updateParagraphOptions()">
+    <select id="languageSelect">
         <option value="english">English</option>
         <option value="hindi">Hindi</option>
     </select>
 
-    <!-- ✅ Select Paragraph -->
     <label for="paragraphSelect">Select Paragraph:</label>
-    <select id="paragraphSelect">
-        <!-- यह ऑप्शन JavaScript में अपडेट होगा -->
-    </select>
+    <select id="paragraphSelect"></select>
 
-    <!-- ✅ Select Word Count -->
     <label for="wordCountSelect">Select Word Count:</label>
     <select id="wordCountSelect">
+        <option value="50">50 Words</option>
+        <option value="100">100 Words</option>
         <option value="200">200 Words</option>
         <option value="300">300 Words</option>
         <option value="500">500 Words</option>
     </select>
 
-    <!-- ✅ Select Time -->
     <label for="timeSelect">Select Time:</label>
     <select id="timeSelect">
-        <option value="60">1 Minute</option>
-        <option value="300">5 Minutes</option>
-        <option value="600">10 Minutes</option>
-        <option value="900">15 Minutes</option>
-        <option value="1200">20 Minutes</option>
+        <option value="1">1 Minute</option>
+        <option value="5">5 Minutes</option>
+        <option value="10">10 Minutes</option>
+        <option value="15">15 Minutes</option>
+        <option value="20">20 Minutes</option>
     </select>
 
-    <button onclick="startTest()">Start Typing Test</button>
-
-    <!-- ✅ Typing Paragraph -->
-    <p id="paragraph">Your paragraph will appear here...</p>
-
-    <!-- ✅ Typing Area -->
-    <textarea id="typingArea" placeholder="Start typing here..." disabled></textarea>
-
-    <!-- ✅ Timer & Results -->
-    <p>⏳ Time Left: <span id="timer">0</span> seconds</p>
-    <p>✅ Correct Words: <span id="correctWords">0</span></p>
-    <p>❌ Wrong Words: <span id="wrongWords">0</span></p>
-    <p>⚡ Typing Speed: <span id="wpm">0</span> WPM</p>
+    <div id="timer">Time: 1 Minute</div>
+    <div id="paragraph">Selected paragraph will appear here...</div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
