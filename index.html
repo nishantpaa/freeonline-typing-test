@@ -1,61 +1,36 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.google.com/jsapi"></script>
-    <script>
-        google.load("elements", "1", { packages: "transliteration" });
-        function onLoad() {
-            var options = {
-                sourceLanguage: 'en',
-                destinationLanguage: ['hi'],
-                transliterationEnabled: true
-            };
-            var control = new google.elements.transliteration.TransliterationControl(options);
-            control.makeTransliteratable(['typingArea']);
-        }
-        google.setOnLoadCallback(onLoad);
-    </script>
 </head>
 <body>
     <header>
-        <h1>Online Typing Test</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Typing Test</a></li>
-                <li><a href="#">MS Word Info</a></li>
-                <li><a href="#">CPCT Questions</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="container">
-        <label for="languageSelect">Select Language:</label>
-        <select id="languageSelect" onchange="loadParagraph()">
-            <option value="english">English</option>
-            <option value="hindi">हिंदी</option>
+        <h1>Online Typing Practice</h1>
+        <label for="paragraphSelect">Select Paragraph:</label>
+        <select id="paragraphSelect">
+            <option value="0">The Importance of Time Management</option>
+            <option value="1">The Power of Positive Thinking</option>
+            <option value="2">The Role of Technology in Education</option>
+            <option value="3">Benefits of Regular Exercise</option>
+            <option value="4">The Impact of Climate Change</option>
+            <option value="5">The Importance of Mental Health</option>
+            <option value="6">The Influence of Social Media</option>
+            <option value="7">The Future of Artificial Intelligence</option>
+            <option value="8">The Importance of Reading</option>
+            <option value="9">The Value of Friendship</option>
         </select>
-
-        <label for="wordCountSelect">Select Word Count:</label>
-        <select id="wordCountSelect" onchange="loadParagraph()">
-            <option value="200">200 Words</option>
-            <option value="300">300 Words</option>
-            <option value="500">500 Words</option>
-        </select>
-
-        <p id="paragraph">Select a language and word count to begin typing.</p>
-
-        <textarea id="typingArea" rows="5" cols="50"></textarea>
-
         <button onclick="startTest()">Start Test</button>
-        <p id="timer">Time: 0:00</p>
-        <p id="result">WPM: 0 | Correct: 0 | Wrong: 0</p>
-    </div>
+    </header>
+    
+    <main>
+        <p id="paragraph">Select a paragraph to start typing...</p>
+        <textarea id="typingArea" placeholder="Start typing here..." disabled></textarea>
+        <p>Time: <span id="timer">60</span> sec | WPM: <span id="wpm">0</span></p>
+        <p>Correct: <span id="correctWords">0</span> | Wrong: <span id="wrongWords">0</span></p>
+    </main>
 
     <script src="script.js"></script>
 </body>
