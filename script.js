@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function() {
+    updateParagraphOptions(); // पेज लोड होते ही पैराग्राफ दिखेगा
+
+    // ✅ सभी ऑप्शन के लिए इवेंट लिसनर सेट करें
+    document.getElementById("languageSelect").addEventListener("change", updateParagraphOptions);
+    document.getElementById("paragraphSelect").addEventListener("change", updateParagraphText);
+    document.getElementById("wordCountSelect").addEventListener("change", updateParagraphText);
+    document.getElementById("timeSelect").addEventListener("change", updateTimerDisplay);
+});
+
 const englishParagraphs = [
     "Time management is the key to success in every aspect of life...",
     "Positive thinking is a mindset that leads to success, happiness, and better health...",
@@ -39,30 +49,24 @@ function updateParagraphOptions() {
         paragraphSelect.appendChild(option);
     });
 
-    // ✅ पहले पैराग्राफ को डिफॉल्ट दिखाने के लिए:
-    document.getElementById("paragraph").innerText = paragraphs[0];
+    updateParagraphText();
 }
 
-function startTest() {
+function updateParagraphText() {
     let language = document.getElementById("languageSelect").value;
     let selectedParagraphIndex = document.getElementById("paragraphSelect").value;
     let wordLimit = parseInt(document.getElementById("wordCountSelect").value);
-    let selectedTime = parseInt(document.getElementById("timeSelect").value);
 
     let selectedParagraph = (language === "hindi") ? hindiParagraphs[selectedParagraphIndex] : englishParagraphs[selectedParagraphIndex];
 
     let wordsArray = selectedParagraph.split(" ").slice(0, wordLimit);
     document.getElementById("paragraph").innerText = wordsArray.join(" ");
-
-    document.getElementById("typingArea").value = "";
-    document.getElementById("typingArea").disabled = false;
-    document.getElementById("typingArea").focus();
-
-    document.getElementById("timer").innerText = selectedTime;
-
-    clearInterval(interval);
-    interval = setInterval(updateTimer, 1000);
 }
 
-// ✅ जब पेज लोड हो, तो पैराग्राफ लोड करें
-document.addEventListener("DOMContentLoaded", updateParagraphOptions);
+function updateTimerDisplay() {
+    let selectedTime = parseInt(document.getElementById("timeSelect").value);
+    document.getElementById("timer").innerText = selectedTime;
+}
+
+// ✅ पेज लोड होने के तुरंत बाद पैराग्राफ दिखाए
+updateParagraphOptions();
