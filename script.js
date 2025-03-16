@@ -38,6 +38,9 @@ function updateParagraphOptions() {
         option.textContent = Paragraph ${index + 1};
         paragraphSelect.appendChild(option);
     });
+
+    // ✅ पहले पैराग्राफ को डिफॉल्ट दिखाने के लिए:
+    document.getElementById("paragraph").innerText = paragraphs[0];
 }
 
 function startTest() {
@@ -61,4 +64,5 @@ function startTest() {
     interval = setInterval(updateTimer, 1000);
 }
 
-updateParagraphOptions(); // पेज लोड होते ही ऑप्शन अपडेट करें
+// ✅ जब पेज लोड हो, तो पैराग्राफ लोड करें
+document.addEventListener("DOMContentLoaded", updateParagraphOptions);
