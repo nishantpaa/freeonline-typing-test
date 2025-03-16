@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <nav>
+        <ul>
+            <li><a href="#hindiTyping">Hindi Typing</a></li>
+            <li><a href="#englishTyping">English Typing</a></li>
+            <li><a href="#msOffice">MS Office</a></li>
+            <li><a href="#cpctQuestions">CPCT Questions</a></li>
+        </ul>
+    </nav>
+
     <header>
         <h1>Online Typing Practice</h1>
         
@@ -15,13 +25,6 @@
             <option value="0">The Importance of Time Management</option>
             <option value="1">The Power of Positive Thinking</option>
             <option value="2">The Role of Technology in Education</option>
-            <option value="3">Benefits of Regular Exercise</option>
-            <option value="4">The Impact of Climate Change</option>
-            <option value="5">The Importance of Mental Health</option>
-            <option value="6">The Influence of Social Media</option>
-            <option value="7">The Future of Artificial Intelligence</option>
-            <option value="8">The Importance of Reading</option>
-            <option value="9">The Value of Friendship</option>
         </select>
 
         <label for="wordCountSelect">Select Word Count:</label>
@@ -36,14 +39,36 @@
             <option value="60">1 Minute</option>
             <option value="300">5 Minutes</option>
             <option value="600">10 Minutes</option>
-            <option value="900">15 Minutes</option>
-            <option value="1200">20 Minutes</option>
         </select>
 
         <button onclick="startTest()">Start Test</button>
     </header>
     
     <main>
+        <section id="hindiTyping">
+            <h2>Hindi Typing</h2>
+            <p>हिंदी टाइपिंग सीखें और अपनी गति बढ़ाएं।</p>
+        </section>
+
+        <section id="englishTyping">
+            <h2>English Typing</h2>
+            <p>Improve your English typing speed with practice.</p>
+        </section>
+
+        <section id="msOffice">
+            <h2>MS Office</h2>
+            <p>MS Word, Excel, and PowerPoint basics.</p>
+        </section>
+
+        <section id="cpctQuestions">
+            <h2>CPCT Old Questions</h2>
+            <ul>
+                <li>CPCT में टाइपिंग की गति कैसे बढ़ाएं?</li>
+                <li>MS Word में टेबल कैसे बनाएं?</li>
+                <li>Excel में फॉर्मूला कैसे लगाएं?</li>
+            </ul>
+        </section>
+
         <p id="paragraph">Select a paragraph to start typing...</p>
         <textarea id="typingArea" placeholder="Start typing here..." disabled></textarea>
         <p>Time: <span id="timer">60</span> sec | WPM: <span id="wpm">0</span></p>
