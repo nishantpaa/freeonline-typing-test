@@ -9,6 +9,7 @@
 <body>
     <header>
         <h1>Online Typing Practice</h1>
+        
         <label for="paragraphSelect">Select Paragraph:</label>
         <select id="paragraphSelect">
             <option value="0">The Importance of Time Management</option>
@@ -22,6 +23,23 @@
             <option value="8">The Importance of Reading</option>
             <option value="9">The Value of Friendship</option>
         </select>
+
+        <label for="wordCountSelect">Select Word Count:</label>
+        <select id="wordCountSelect">
+            <option value="200">200 Words</option>
+            <option value="300">300 Words</option>
+            <option value="500">500 Words</option>
+        </select>
+
+        <label for="timeSelect">Select Time:</label>
+        <select id="timeSelect">
+            <option value="60">1 Minute</option>
+            <option value="300">5 Minutes</option>
+            <option value="600">10 Minutes</option>
+            <option value="900">15 Minutes</option>
+            <option value="1200">20 Minutes</option>
+        </select>
+
         <button onclick="startTest()">Start Test</button>
     </header>
     
