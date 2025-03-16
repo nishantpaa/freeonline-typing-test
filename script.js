@@ -8,29 +8,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const englishParagraphs = [
-    "Time management is the key to success in every aspect of life...",
-    "Positive thinking is a mindset that leads to success, happiness, and better health...",
-    "Technology has revolutionized education, making learning more accessible and engaging...",
-    "Regular exercise is essential for maintaining good health and overall well-being...",
-    "Climate change is a pressing global issue that affects every aspect of life on Earth...",
-    "Mental health is as important as physical health, yet it is often overlooked...",
-    "Social media has transformed communication and information sharing...",
-    "Artificial Intelligence (AI) is revolutionizing industries, from healthcare to finance...",
-    "Reading enhances knowledge, improves vocabulary, and stimulates imagination...",
-    "Friendship is one of the most valuable relationships in life..."
+    "Time management is the key to success in every aspect of life. It helps individuals prioritize tasks and use time efficiently.",
+    "Positive thinking is a powerful tool that enhances mental health and overall well-being. A positive mindset leads to better outcomes in life.",
+    "Technology has revolutionized education by making information easily accessible. Online learning platforms provide flexibility for students.",
+    "Regular exercise is essential for maintaining good health. It strengthens muscles, improves cardiovascular fitness, and boosts mental well-being.",
+    "Climate change is one of the biggest challenges of our time. Global efforts are needed to reduce carbon emissions and protect our planet.",
+    "Mental health awareness is growing worldwide. It is important to take care of emotional well-being and seek support when needed.",
+    "Social media plays a significant role in modern communication. It connects people, spreads awareness, and influences opinions.",
+    "Artificial Intelligence is transforming industries like healthcare and finance. AI-powered solutions improve efficiency and decision-making.",
+    "Reading books enhances vocabulary, critical thinking, and creativity. It is a great way to acquire knowledge and expand imagination.",
+    "Friendship is one of the most valuable relationships. Good friends provide emotional support, happiness, and a sense of belonging."
 ];
 
 const hindiParagraphs = [
-    "समय प्रबंधन जीवन में सफलता की कुंजी है। यह हमें हमारी प्राथमिकताओं को समझने और सही निर्णय लेने में मदद करता है।",
-    "सकारात्मक सोच हमें आत्मविश्वास और प्रेरणा देती है, जिससे हम जीवन में बेहतर परिणाम प्राप्त कर सकते हैं।",
-    "शिक्षा में तकनीकी का योगदान अद्वितीय है। ऑनलाइन लर्निंग और डिजिटल उपकरणों ने अध्ययन को सरल बना दिया है।",
-    "नियमित व्यायाम हमारे स्वास्थ्य के लिए आवश्यक है। यह न केवल शरीर को मजबूत बनाता है बल्कि मानसिक शांति भी प्रदान करता है।",
-    "जलवायु परिवर्तन वर्तमान समय की एक गंभीर समस्या है। हमें पर्यावरण को बचाने के लिए जागरूकता बढ़ानी होगी।",
-    "मानसिक स्वास्थ्य भी शारीरिक स्वास्थ्य जितना ही महत्वपूर्ण है। हमें अपने विचारों और भावनाओं को संतुलित रखना चाहिए।",
-    "सोशल मीडिया ने संचार और सूचना साझा करने के तरीकों को बदल दिया है। यह लाभदायक भी है और हानिकारक भी।",
-    "कृत्रिम बुद्धिमत्ता (AI) आज कई उद्योगों में क्रांति ला रही है, जिससे कार्यों को अधिक कुशल बनाया जा रहा है।",
-    "पढ़ाई न केवल ज्ञान बढ़ाती है, बल्कि यह हमारी सोचने और कल्पना करने की शक्ति को भी विकसित करती है।",
-    "मित्रता जीवन का एक अनमोल हिस्सा है। यह हमें समर्थन, खुशियां और अच्छे अनुभव प्रदान करती है।"
+    "समय प्रबंधन सफलता की कुंजी है। यह व्यक्ति को कार्यों को प्राथमिकता देने और समय का सही उपयोग करने में मदद करता है।",
+    "सकारात्मक सोच मानसिक स्वास्थ्य और समग्र कल्याण को बढ़ावा देती है। सकारात्मक दृष्टिकोण जीवन में बेहतर परिणाम लाता है।",
+    "तकनीक ने शिक्षा को क्रांतिकारी बना दिया है। ऑनलाइन शिक्षण प्लेटफॉर्म छात्रों को लचीलापन प्रदान करते हैं।",
+    "नियमित व्यायाम अच्छे स्वास्थ्य के लिए आवश्यक है। यह मांसपेशियों को मजबूत करता है, हृदय स्वास्थ्य सुधारता है और मानसिक संतुलन बनाए रखता है।",
+    "जलवायु परिवर्तन हमारे समय की सबसे बड़ी चुनौतियों में से एक है। पर्यावरण की रक्षा के लिए वैश्विक प्रयास आवश्यक हैं।",
+    "मानसिक स्वास्थ्य जागरूकता दुनिया भर में बढ़ रही है। भावनात्मक कल्याण का ध्यान रखना और आवश्यकता पड़ने पर सहायता लेना महत्वपूर्ण है।",
+    "सोशल मीडिया आधुनिक संचार में महत्वपूर्ण भूमिका निभाता है। यह लोगों को जोड़ता है, जागरूकता फैलाता है और विचारों को प्रभावित करता है।",
+    "कृत्रिम बुद्धिमत्ता स्वास्थ्य और वित्त जैसे उद्योगों को बदल रही है। एआई-आधारित समाधान दक्षता और निर्णय लेने में सुधार करते हैं।",
+    "पढ़ने से शब्दावली, आलोचनात्मक सोच और रचनात्मकता में वृद्धि होती है। यह ज्ञान प्राप्त करने और कल्पना का विस्तार करने का एक शानदार तरीका है।",
+    "मित्रता सबसे मूल्यवान संबंधों में से एक है। अच्छे दोस्त भावनात्मक समर्थन, खुशी और एकता की भावना प्रदान करते हैं।"
 ];
 
 function updateParagraphOptions() {
@@ -48,13 +48,14 @@ function updateParagraphOptions() {
         paragraphSelect.appendChild(option);
     });
 
-    paragraphSelect.value = "0"; // पहला पैराग्राफ डिफॉल्ट सेलेक्ट करें
+    // ✅ पहले पैराग्राफ को डिफॉल्ट सेलेक्ट करें
+    paragraphSelect.value = "0";  
     updateParagraphText(); // पैराग्राफ दिखाएं
 }
 
 function updateParagraphText() {
     let language = document.getElementById("languageSelect").value;
-    let selectedParagraphIndex = parseInt(document.getElementById("paragraphSelect").value);
+    let selectedParagraphIndex = document.getElementById("paragraphSelect").value;
     let wordLimit = parseInt(document.getElementById("wordCountSelect").value);
 
     let paragraphs = (language === "hindi") ? hindiParagraphs : englishParagraphs;
@@ -66,8 +67,8 @@ function updateParagraphText() {
 
 function updateTimerDisplay() {
     let selectedTime = parseInt(document.getElementById("timeSelect").value);
-    document.getElementById("timer").innerText = selectedTime;
+    document.getElementById("timer").innerText = selectedTime + " Minutes";
 }
 
-// ✅ पेज लोड होने के तुरंत बाद पैराग्राफ दिखाए
+// ✅ पेज लोड होने के तुरंत बाद पैराग्राफ दिखाएं
 updateParagraphOptions();
