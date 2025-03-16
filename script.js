@@ -24,10 +24,21 @@ const hindiParagraphs = [
     "मित्रता जीवन का एक अनमोल हिस्सा है। यह हमें समर्थन, खुशियां और अच्छे अनुभव प्रदान करती है।"
 ];
 
-let timer;
-let interval;
-let correctWords = 0;
-let wrongWords = 0;
+function updateParagraphOptions() {
+    let language = document.getElementById("languageSelect").value;
+    let paragraphSelect = document.getElementById("paragraphSelect");
+
+    paragraphSelect.innerHTML = ""; // पहले के ऑप्शन हटाएं
+
+    let paragraphs = (language === "hindi") ? hindiParagraphs : englishParagraphs;
+
+    paragraphs.forEach((para, index) => {
+        let option = document.createElement("option");
+        option.value = index;
+        option.textContent = Paragraph ${index + 1};
+        paragraphSelect.appendChild(option);
+    });
+}
 
 function startTest() {
     let language = document.getElementById("languageSelect").value;
@@ -44,42 +55,10 @@ function startTest() {
     document.getElementById("typingArea").disabled = false;
     document.getElementById("typingArea").focus();
 
-    timer = selectedTime;
-    correctWords = 0;
-    wrongWords = 0;
-    document.getElementById("timer").innerText = timer;
+    document.getElementById("timer").innerText = selectedTime;
 
     clearInterval(interval);
     interval = setInterval(updateTimer, 1000);
 }
 
-function updateTimer() {
-    if (timer > 0) {
-        timer--;
-        document.getElementById("timer").innerText = timer;
-    } else {
-        clearInterval(interval);
-        document.getElementById("typingArea").disabled = true;
-        calculateResults();
-    }
-}
-
-function calculateResults() {
-    let typedText = document.getElementById("typingArea").value.trim();
-    let originalText = document.getElementById("paragraph").innerText.trim();
-    let typedWords = typedText.split(" ");
-    let originalWords = originalText.split(" ");
-
-    typedWords.forEach((word, index) => {
-        if (word === originalWords[index]) {
-            correctWords++;
-        } else {
-            wrongWords++;
-        }
-    });
-
-    let wpm = Math.round((correctWords / 5) / (60 / timer));
-    document.getElementById("wpm").innerText = wpm;
-    document.getElementById("correctWords").innerText = correctWords;
-    document.getElementById("wrongWords").innerText = wrongWords;
-}
+updateParagraphOptions(); // पेज लोड होते ही ऑप्शन अपडेट करें
