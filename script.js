@@ -1,7 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     updateParagraphOptions(); // पेज लोड होते ही पैराग्राफ लोड होगा
 
-    // ✅ सभी ऑप्शन के लिए इवेंट लिसनर सेट करें
     document.getElementById("languageSelect").addEventListener("change", updateParagraphOptions);
     document.getElementById("paragraphSelect").addEventListener("change", updateParagraphText);
     document.getElementById("wordCountSelect").addEventListener("change", updateParagraphText);
@@ -49,16 +48,17 @@ function updateParagraphOptions() {
         paragraphSelect.appendChild(option);
     });
 
-    // ✅ पहले पैराग्राफ को डिफॉल्ट दिखाने के लिए:
-    updateParagraphText();
+    paragraphSelect.value = "0"; // पहला पैराग्राफ डिफॉल्ट सेलेक्ट करें
+    updateParagraphText(); // पैराग्राफ दिखाएं
 }
 
 function updateParagraphText() {
     let language = document.getElementById("languageSelect").value;
-    let selectedParagraphIndex = document.getElementById("paragraphSelect").value || 0;
+    let selectedParagraphIndex = parseInt(document.getElementById("paragraphSelect").value);
     let wordLimit = parseInt(document.getElementById("wordCountSelect").value);
 
-    let selectedParagraph = (language === "hindi") ? hindiParagraphs[selectedParagraphIndex] : englishParagraphs[selectedParagraphIndex];
+    let paragraphs = (language === "hindi") ? hindiParagraphs : englishParagraphs;
+    let selectedParagraph = paragraphs[selectedParagraphIndex] || "";
 
     let wordsArray = selectedParagraph.split(" ").slice(0, wordLimit);
     document.getElementById("paragraph").innerText = wordsArray.join(" ");
