@@ -4,62 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- CSS लिंक -->
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">Typing Test</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Hindi Typing</a></li>
-            <li><a href="#">English Typing</a></li>
-            <li><a href="#">CPCT Questions</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Start Test बटन -->
+    <button id="start-btn" onclick="startTest()">Start Test</button>
 
-    <!-- Typing Test Section -->
-    <div class="typing-container">
-        <h1 class="title">Typing Speed Test</h1>
+    <!-- Select Word Count -->
+    <label for="word-count">Select Word Count:</label>
+    <select id="word-count">
+        <option value="200">200 Words</option>
+        <option value="300">300 Words</option>
+        <option value="500">500 Words</option>
+    </select>
 
-        <div class="selection-container">
-            <div class="selection-box">
-                <label>Select Language:</label>
-                <select id="language">
-                    <option value="english">English</option>
-                    <option value="hindi">हिंदी</option>
-                </select>
-            </div>
+    <!-- Typing Paragraph (जो दिखेगा) -->
+    <div id="paragraph-display"></div>
 
-            <div class="selection-box">
-                <label>Select Paragraph:</label>
-                <select id="paragraph-select"></select>
-            </div>
+    <!-- Typing Area -->
+    <textarea id="typing-area" placeholder="Start typing here..."></textarea>
 
-            <div class="selection-box">
-                <label>Select Time:</label>
-                <select id="time">
-                    <option value="1">1 Minute</option>
-                    <option value="5">5 Minutes</option>
-                    <option value="10">10 Minutes</option>
-                    <option value="20">20 Minutes</option>
-                </select>
-            </div>
-        </div>
+    <!-- Stop Test बटन -->
+    <button id="stop-btn" onclick="stopTest()">Stop Test</button>
 
-        <div id="paragraph" class="text-box"></div>
-
-        <textarea id="typing-area" class="typing-box" placeholder="Start typing here..."></textarea>
-
-        <button onclick="startTest()">Start Test</button>
-
-        <div id="timer">Time Left: <span id="time-left"></span> seconds</div>
-        <div id="result"></div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- JavaScript लिंक -->
 </body>
 </html>
