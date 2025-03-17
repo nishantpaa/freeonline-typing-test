@@ -23,28 +23,36 @@
 
     <!-- Typing Test Section -->
     <div class="typing-container">
-        <h1>Typing Speed Test</h1>
+        <h1 class="title">Typing Speed Test</h1>
 
-        <label>Select Language:</label>
-        <select id="language">
-            <option value="english">English</option>
-            <option value="hindi">हिंदी</option>
-        </select>
+        <div class="selection-container">
+            <div class="selection-box">
+                <label>Select Language:</label>
+                <select id="language">
+                    <option value="english">English</option>
+                    <option value="hindi">हिंदी</option>
+                </select>
+            </div>
 
-        <label>Select Paragraph:</label>
-        <select id="paragraph-select"></select>
+            <div class="selection-box">
+                <label>Select Paragraph:</label>
+                <select id="paragraph-select"></select>
+            </div>
 
-        <label>Select Time:</label>
-        <select id="time">
-            <option value="1">1 Minute</option>
-            <option value="5">5 Minutes</option>
-            <option value="10">10 Minutes</option>
-            <option value="20">20 Minutes</option>
-        </select>
+            <div class="selection-box">
+                <label>Select Time:</label>
+                <select id="time">
+                    <option value="1">1 Minute</option>
+                    <option value="5">5 Minutes</option>
+                    <option value="10">10 Minutes</option>
+                    <option value="20">20 Minutes</option>
+                </select>
+            </div>
+        </div>
 
-        <div id="paragraph"></div>
+        <div id="paragraph" class="text-box"></div>
 
-        <textarea id="typing-area" placeholder="Start typing here..."></textarea>
+        <textarea id="typing-area" class="typing-box" placeholder="Start typing here..."></textarea>
 
         <button onclick="startTest()">Start Test</button>
 
