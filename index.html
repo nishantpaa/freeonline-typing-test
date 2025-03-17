@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Typing Test</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Hindi Typing</a></li>
+            <li><a href="#">English Typing</a></li>
+            <li><a href="#">CPCT Questions</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Typing Test Section -->
+    <div class="typing-container">
+        <h1>Typing Speed Test</h1>
+
+        <label>Select Language:</label>
+        <select id="language">
+            <option value="english">English</option>
+            <option value="hindi">हिंदी</option>
+        </select>
+
+        <label>Select Time:</label>
+        <select id="time">
+            <option value="1">1 Minute</option>
+            <option value="5">5 Minutes</option>
+            <option value="10">10 Minutes</option>
+            <option value="20">20 Minutes</option>
+        </select>
+
+        <div id="paragraph"></div>
+
+        <textarea id="typing-area" placeholder="Start typing here..."></textarea>
+
+        <button onclick="startTest()">Start Test</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
