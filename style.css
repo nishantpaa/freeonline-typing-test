@@ -6,7 +6,7 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Navigation Bar (Menu Bar Centered) */
+/* Centered Navigation Bar */
 nav {
     background-color: #333;
     padding: 15px 0;
@@ -27,7 +27,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center; /* Menu Bar को Center में लाने के लिए */
+    justify-content: center; /* Center Menu */
     align-items: center;
 }
 

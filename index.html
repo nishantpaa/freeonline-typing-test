@@ -1,124 +1,60 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">Typing Test</div>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="typing.html">Typing Test</a></li>
-            <li><a href="ms-office.html">MS Office</a></li>
-            <li><a href="cpct-questions.html">CPCT Questions</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Hindi Typing</a></li>
+            <li><a href="#">English Typing</a></li>
+            <li><a href="#">MS Office</a></li>
+            <li><a href="#">CPCT Questions</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
-    <section class="typing-test">
-        <h1>Typing Test</h1>
-        
-        <label for="language">भाषा चुनें:</label>
+    <!-- Typing Test Section -->
+    <div class="typing-test">
+        <h1>Typing Speed Test</h1>
+
+        <!-- Language Selection -->
+        <label for="language">Select Language:</label>
         <select id="language">
-            <option value="hindi">हिंदी</option>
             <option value="english">English</option>
+            <option value="hindi">हिंदी</option>
         </select>
 
-        <label for="paragraphs">पैराग्राफ चुनें:</label>
-        <select id="paragraphs"></select>
+        <!-- Timer Selection -->
+        <label for="time">Select Time:</label>
+        <select id="time">
+            <option value="1">1 Minute</option>
+            <option value="2">2 Minutes</option>
+            <option value="5">5 Minutes</option>
+        </select>
 
-        <p id="paragraph">यहाँ पर आपका चयनित पैराग्राफ दिखेगा।</p>
-        <textarea id="typing-area" rows="5" placeholder="यहाँ टाइप करें..."></textarea>
-        <button onclick="checkTyping()">Submit</button>
-        <p id="result"></p>
-    </section>
+        <!-- Display Paragraph -->
+        <div id="paragraph"></div>
 
-    <script>
-        const hindiParagraphs = [
-            "भारत विविधताओं का देश है। यहाँ अनेक भाषाएँ, संस्कृतियाँ और परंपराएँ हैं। हर राज्य की अपनी अलग विशेषताएँ हैं।",
-            "गंगा भारत की प्रमुख नदियों में से एक है। यह हिमालय से निकलती है और बंगाल की खाड़ी में मिलती है।",
-            "महात्मा गांधी को भारत का राष्ट्रपिता कहा जाता है। उन्होंने अहिंसा के मार्ग पर चलकर देश को आज़ादी दिलाई।",
-            "होली भारत का प्रमुख त्यौहार है। इसे रंगों का त्यौहार भी कहा जाता है। लोग आपस में प्रेम और खुशियाँ बाँटते हैं।",
-            "भारत की राजधानी दिल्ली है। यह ऐतिहासिक और आधुनिक संस्कृति का संगम है। यहाँ लाल किला और कुतुब मीनार जैसे ऐतिहासिक स्थल हैं।",
-            "पढ़ाई जीवन का महत्वपूर्ण हिस्सा है। शिक्षा से व्यक्ति को ज्ञान और सफलता प्राप्त होती है।",
-            "ताजमहल भारत की शान है। यह प्रेम का प्रतीक है और इसे शाहजहाँ ने बनवाया था।",
-            "कंप्यूटर आधुनिक जीवन का एक महत्वपूर्ण अंग बन चुका है। यह शिक्षा, व्यापार और अनुसंधान में मदद करता है।",
-            "खेल हमारे स्वास्थ्य के लिए बहुत आवश्यक हैं। क्रिकेट, हॉकी और फुटबॉल भारत में लोकप्रिय खेल हैं।",
-            "पर्यावरण को स्वच्छ रखना हमारी जिम्मेदारी है। पेड़ लगाकर और प्रदूषण कम करके हम इसे संरक्षित कर सकते हैं।"
-        ];
+        <!-- Typing Area -->
+        <textarea id="typing-area" placeholder="Start typing here..."></textarea>
 
-        const englishParagraphs = [
-            "India is a land of diversity. It has many languages, cultures, and traditions. Each state has its own uniqueness.",
-            "The Ganges is one of the major rivers of India. It originates from the Himalayas and merges into the Bay of Bengal.",
-            "Mahatma Gandhi is called the Father of the Nation. He led India to independence through the path of non-violence.",
-            "Holi is a major festival of India. It is also known as the festival of colors. People share love and happiness.",
-            "Delhi is the capital of India. It is a blend of historical and modern culture. The Red Fort and Qutub Minar are famous landmarks.",
-            "Education is an important part of life. It gives knowledge and leads to success in the future.",
-            "The Taj Mahal is the pride of India. It is a symbol of love and was built by Shah Jahan.",
-            "The computer has become an essential part of modern life. It helps in education, business, and research.",
-            "Sports are very important for our health. Cricket, hockey, and football are popular games in India.",
-            "It is our responsibility to keep the environment clean. We can protect it by planting trees and reducing pollution."
-        ];
+        <!-- Start Button -->
+        <button onclick="startTest()">Start Test</button>
 
-        function loadParagraphs() {
-            let language = document.getElementById("language").value;
-            let paragraphSelect = document.getElementById("paragraphs");
-            paragraphSelect.innerHTML = "";
+        <!-- Results -->
+        <div id="result"></div>
+    </div>
 
-            let paragraphs = (language === "hindi") ? hindiParagraphs : englishParagraphs;
-
-            paragraphs.forEach((para, index) => {
-                let option = document.createElement("option");
-                option.value = index;
-                option.textContent = "पैराग्राफ " + (index + 1);
-                paragraphSelect.appendChild(option);
-            });
-
-            document.getElementById("paragraph").innerText = paragraphs[0];
-        }
-
-        function selectParagraph() {
-            let language = document.getElementById("language").value;
-            let selectedIndex = document.getElementById("paragraphs").value;
-            let paragraphs = (language === "hindi") ? hindiParagraphs : englishParagraphs;
-
-            document.getElementById("paragraph").innerText = paragraphs[selectedIndex];
-        }
-
-        function checkTyping() {
-            let originalText = document.getElementById("paragraph").innerText;
-            let typedText = document.getElementById("typing-area").value;
-            
-            let correctWords = 0;
-            let wrongWords = 0;
-
-            let originalWords = originalText.split(" ");
-            let typedWords = typedText.split(" ");
-
-            for (let i = 0; i < originalWords.length; i++) {
-                if (typedWords[i] === originalWords[i]) {
-                    correctWords++;
-                } else {
-                    wrongWords++;
-                }
-            }
-
-            let wpm = (correctWords / 1) * 60; 
-
-            document.getElementById("result").innerHTML = 
-                "टाइपिंग स्पीड: " + wpm + " WPM <br> सही शब्द: " + correctWords + " <br> गलत शब्द: " + wrongWords;
-        }
-
-        document.getElementById("language").addEventListener("change", loadParagraphs);
-        document.getElementById("paragraphs").addEventListener("change", selectParagraph);
-
-        loadParagraphs();
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>

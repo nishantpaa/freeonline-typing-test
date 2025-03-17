@@ -1,72 +1,51 @@
-document.addEventListener("DOMContentLoaded", function () {
-    updateParagraphOptions(); 
+// Paragraphs (Hindi & English)
+const paragraphs = {
+    english: [
+        "The quick brown fox jumps over the lazy dog.",
+        "Practice makes perfect. Keep typing daily.",
+        "Typing speed is important for productivity.",
+        "Consistent practice improves typing accuracy."
+    ],
+    hindi: [
+        "कृपया ध्यान दें कि टाइपिंग अभ्यास बहुत ज़रूरी है।",
+        "अगर आप तेज़ टाइप करना चाहते हैं तो रोज़ अभ्यास करें।",
+        "टाइपिंग की गति और सटीकता बढ़ाने के लिए अभ्यास ज़रूरी है।",
+        "नियमित अभ्यास से टाइपिंग में सुधार आता है।"
+    ]
+};
 
-    document.getElementById("languageSelect").addEventListener("change", updateParagraphOptions);
-    document.getElementById("paragraphSelect").addEventListener("change", updateParagraphText);
-    document.getElementById("wordCountSelect").addEventListener("change", updateParagraphText);
-    document.getElementById("timeSelect").addEventListener("change", updateTimerDisplay);
-});
+// Function to Start Typing Test
+function startTest() {
+    let language = document.getElementById("language").value;
+    let time = parseInt(document.getElementById("time").value) * 60; // Convert minutes to seconds
 
-const englishParagraphs = [
-    "Time management is the key to success in every aspect of life...",
-    "Positive thinking is a mindset that leads to success, happiness...",
-    "Technology has revolutionized education, making learning accessible...",
-    "Regular exercise is essential for maintaining good health and fitness...",
-    "Climate change is a pressing global issue that affects everyone...",
-    "Mental health is as important as physical health, yet often overlooked...",
-    "Social media has transformed communication and information sharing...",
-    "Artificial Intelligence (AI) is revolutionizing industries worldwide...",
-    "Reading enhances knowledge, improves vocabulary, and stimulates imagination...",
-    "Friendship is one of the most valuable relationships in life..."
-];
+    // Select a random paragraph
+    let randomParagraph = paragraphs[language][Math.floor(Math.random() * paragraphs[language].length)];
+    document.getElementById("paragraph").innerText = randomParagraph;
 
-const hindiParagraphs = [
-    "समय प्रबंधन सफलता की कुंजी है, यह हमें सही निर्णय लेने में मदद करता है।",
-    "सकारात्मक सोच हमें आत्मविश्वास देती है और हमें प्रेरित करती है।",
-    "शिक्षा में तकनीकी का योगदान अद्वितीय है और इसे सरल बनाता है।",
-    "नियमित व्यायाम न केवल शरीर बल्कि मानसिक शांति के लिए भी आवश्यक है।",
-    "जलवायु परिवर्तन एक गंभीर समस्या है, हमें जागरूकता बढ़ानी होगी।",
-    "मानसिक स्वास्थ्य को भी शारीरिक स्वास्थ्य जितना ही महत्व देना चाहिए।",
-    "सोशल मीडिया ने संचार और सूचना साझा करने के तरीकों को बदल दिया है।",
-    "कृत्रिम बुद्धिमत्ता कई उद्योगों में क्रांति ला रही है और कार्य सरल बना रही है।",
-    "पढ़ाई न केवल ज्ञान बढ़ाती है बल्कि यह हमारी कल्पना को भी बढ़ावा देती है।",
-    "मित्रता जीवन का एक अनमोल हिस्सा है, यह हमें समर्थन और खुशी प्रदान करती है।"
-];
+    let typingArea = document.getElementById("typing-area");
+    typingArea.value = "";
+    typingArea.focus();
 
-function updateParagraphOptions() {
-    let language = document.getElementById("languageSelect").value;
-    let paragraphSelect = document.getElementById("paragraphSelect");
-
-    paragraphSelect.innerHTML = ""; 
-
-    let paragraphs = (language === "hindi") ? hindiParagraphs : englishParagraphs;
-
-    paragraphs.forEach((para, index) => {
-        let option = document.createElement("option");
-        option.value = index;
-        option.textContent = Paragraph ${index + 1};
-        paragraphSelect.appendChild(option);
-    });
-
-    paragraphSelect.value = "0";  
-    updateParagraphText();
+    // Timer Function
+    let timer = setInterval(() => {
+        if (time > 0) {
+            time--;
+        } else {
+            clearInterval(timer);
+            calculateResults(randomParagraph);
+        }
+    }, 1000);
 }
 
-function updateParagraphText() {
-    let language = document.getElementById("languageSelect").value;
-    let selectedParagraphIndex = parseInt(document.getElementById("paragraphSelect").value);
-    let wordLimit = parseInt(document.getElementById("wordCountSelect").value);
-
-    let paragraphs = (language === "hindi") ? hindiParagraphs : englishParagraphs;
-    let selectedParagraph = paragraphs[selectedParagraphIndex] || "";
-
-    let wordsArray = selectedParagraph.split(" ").slice(0, wordLimit);
-    document.getElementById("paragraph").innerText = wordsArray.join(" ");
+// Function to Calculate Typing Speed & Accuracy
+function calculateResults(originalText) {
+    let typedText = document.getElementById("typing-area").value.trim();
+    let wordsTyped = typedText.split(" ").length;
+    let correctWords = typedText.split(" ").filter(word => originalText.includes(word)).length;
+    
+    document.getElementById("result").innerHTML = `
+        <p>Words Per Minute (WPM): ${wordsTyped}</p>
+        <p>Correct Words: ${correctWords}</p>
+    `;
 }
-
-function updateTimerDisplay() {
-    let selectedTime = parseInt(document.getElementById("timeSelect").value);
-    document.getElementById("timer").innerText = "Time: " + selectedTime + " Minutes";
-}
-
-updateParagraphOptions();
